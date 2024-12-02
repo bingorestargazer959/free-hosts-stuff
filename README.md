@@ -7,8 +7,8 @@ This repository contains various "auto" tools designed for experimental and ente
 ## Features
 These can vary depending on what things you want. The main ones are these:
 
-- **Auto-AFK**: Automatically sets the account to AFK after a specified period of inactivity.
-- **Auto-Renew**: Automatically renews free hosting accounts to prevent service interruptions.
+- **Auto-AFK**: Automaticially go to the AFK page and start grinding coins for you.
+- **Auto-Renew**: Automatically renews servers so you don't have to keep clicking the button every 24 hours.
   
 ## Usage
 

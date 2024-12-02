@@ -55,36 +55,38 @@ const client = new Client({
 */
 
 // This might not work for discord.js v13 or lower, but its recommended to use discord.js v14+.
+
+// I made this so that it rounds it to the nearest whole number.
 async function sendToDiscord(message, type) {
   try {
     const embedFields = [
-      { name: "Active Users", value: String(message.activeUsers || "N/A"), inline: true },
-      { name: "Coins", value: String(message.coins || "N/A"), inline: true },
+      { name: "Active Users", value: String(Math.round(message.activeUsers) || "N/A"), inline: true },
+      { name: "Coins", value: String(Math.round(message.coins) || "N/A"), inline: true },
     ];
     
     if (type === "initState") {
       embedFields.push(
-        { name: "Total Coins Earned", value: String(message.stats.totalCoinsEarned || "N/A"), inline: true },
-        { name: "Level", value: String(message.stats.level || "N/A"), inline: true },
-        { name: "XP", value: String(message.stats.xp || "N/A"), inline: true },
-        { name: "Streak", value: String(message.stats.streak || "N/A"), inline: true },
+        { name: "Total Coins Earned", value: String(Math.round(message.stats.totalCoinsEarned) || "N/A"), inline: true },
+        { name: "Level", value: String(Math.round(message.stats.level) || "N/A"), inline: true },
+        { name: "XP", value: String(Math.round(message.stats.xp) || "N/A"), inline: true },
+        { name: "Streak", value: String(Math.round(message.stats.streak) || "N/A"), inline: true },
         { name: "Last Online", value: String(message.stats.lastOnline || "N/A"), inline: true },
-        { name: "Rains Collected", value: String(message.stats.eventStats.rainsCollected || "N/A"), inline: true },
-        { name: "Chests Opened", value: String(message.stats.eventStats.chestsOpened || "N/A"), inline: true },
-        { name: "Next Coin Rain", value: String(message.nextEvents.coinRain || "N/A"), inline: true },
-        { name: "Next Chest Event", value: String(message.nextEvents.chest || "N/A"), inline: true }
+        { name: "Rains Collected", value: String(Math.round(message.stats.eventStats.rainsCollected) || "N/A"), inline: true },
+        { name: "Chests Opened", value: String(Math.round(message.stats.eventStats.chestsOpened) || "N/A"), inline: true },
+        { name: "Next Coin Rain", value: String(Math.round(message.nextEvents.coinRain) || "N/A"), inline: true },
+        { name: "Next Chest Event", value: String(Math.round(message.nextEvents.chest) || "N/A"), inline: true }
       );
     } else if (type === "update") {
       embedFields.push(
         { name: "Level Up", value: message.levelUp ? "Yes" : "No", inline: true },
-        { name: "Party Multiplier", value: String(message.multipliers.party || "N/A"), inline: true },
-        { name: "Streak Multiplier", value: String(message.multipliers.streak || "N/A"), inline: true },
-        { name: "Level Multiplier", value: String(message.multipliers.level || "N/A"), inline: true },
-        { name: "Total AFK Time", value: String(message.stats.totalAfkTime || "N/A"), inline: true },
-        { name: "Total Coins Earned", value: String(message.stats.totalCoinsEarned || "N/A"), inline: true },
-        { name: "Level", value: String(message.stats.level || "N/A"), inline: true },
-        { name: "XP", value: String(message.stats.xp || "N/A"), inline: true },
-        { name: "Streak", value: String(message.stats.streak || "N/A"), inline: true }
+        { name: "Party Multiplier", value: String(Math.round(message.multipliers.party) || "N/A"), inline: true },
+        { name: "Streak Multiplier", value: String(Math.round(message.multipliers.streak) || "N/A"), inline: true },
+        { name: "Level Multiplier", value: String(Math.round(message.multipliers.level) || "N/A"), inline: true },
+        { name: "Total AFK Time", value: String(Math.round(message.stats.totalAfkTime) || "N/A"), inline: true },
+        { name: "Total Coins Earned", value: String(Math.round(message.stats.totalCoinsEarned) || "N/A"), inline: true },
+        { name: "Level", value: String(Math.round(message.stats.level) || "N/A"), inline: true },
+        { name: "XP", value: String(Math.round(message.stats.xp) || "N/A"), inline: true },
+        { name: "Streak", value: String(Math.round(message.stats.streak) || "N/A"), inline: true }
       );
     }
 

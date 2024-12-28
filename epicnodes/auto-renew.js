@@ -11,6 +11,13 @@ Notes:
 - If it says 429, you might have set the setinterval to something to check fast.
 - If it says 403/401, it means you are missing your cookie or your server id.
 - For this to work, the node which your server is running on must be running, otherwise it will fail.
+
+Example Response when Renewal is not required:
+Error: {
+  error: 'Renewal not required yet',
+  nextRenewal: '2024-12-29T08:27:05.480Z',
+  timeRemaining: { hours: 23, minutes: 53 }
+}
 */
 
 const axios = require('axios');
